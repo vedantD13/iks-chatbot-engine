@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-copper-100: #fbebdc;
+  --color-copper-500: #c27a46;
+  --color-copper-700: #8c4c23;
+  --color-copper-900: #4a2710;
+  --color-manuscript-bg: #0f172a; /* slate-950 */
+  --color-manuscript-fg: #cbd5e1; /* slate-300 */
+}
+
+:root {
+  --background: #0b1120; /* deeper slate */
+  --foreground: #e2e8f0;
+}
+
+body {
+  background-color: var(--background);
+  /* Apply a subtle noise texture over the background */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom scrollbar for manuscript feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px; /* for horizontal scrolling if needed */
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #4a2710;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8c4c23;
+}
+
+/* Animation utilities */
+@keyframes slowSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-slow-spin {
+  animation: slowSpin 60s linear infinite;
+}

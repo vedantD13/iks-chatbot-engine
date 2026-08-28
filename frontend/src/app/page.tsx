@@ -19,7 +19,7 @@ type EngineResponse = {
   raw?: string;
 };
 
-const cardVariants = {
+const cardVariants: any = {
   hidden: { opacity: 0, y: 20 },
   visible: (custom: number) => ({
     opacity: 1,
